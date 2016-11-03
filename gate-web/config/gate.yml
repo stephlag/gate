@@ -7,7 +7,7 @@ services:
   orca:
     baseUrl: http://${ORCA_HOST:localhost}:${ORCA_PORT:8083}
   front50:
-    baseUrl: http://${FRONT50_HOST:localhost}:$FRONT50_PORT:8080}
+    baseUrl: http://${FRONT50_HOST:localhost}:${FRONT50_PORT:8080}
   clouddriver:
     baseUrl: http://${CLOUDDRIVER_HOST:localhost}:${CLOUDDRIVER_PORT:7002}
 # semi-optional services (Everybody except Netflix needs these):
