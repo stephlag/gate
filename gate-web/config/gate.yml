@@ -1,19 +1,19 @@
 server:
-  port: 8084
+  port: ${GATE_PORT:8084}
 
 services:
   deck:
-    baseUrl: http://${DECK_HOST:localhost}:9000
+    baseUrl: http://${DECK_HOST:localhost}:${DECK_PORT:9000}
   orca:
-    baseUrl: http://${ORCA_HOST:localhost}:8083
+    baseUrl: http://${ORCA_HOST:localhost}:${ORCA_PORT:8083}
   front50:
-    baseUrl: http://${FRONT50_HOST:localhost}:8080
+    baseUrl: http://${FRONT50_HOST:localhost}:${FRONT50_PORT:8080}
   clouddriver:
-    baseUrl: http://${CLOUDDRIVER_HOST:localhost}:7002
+    baseUrl: http://${CLOUDDRIVER_HOST:localhost}:${CLOUDDRIVER_PORT:7002}
 # semi-optional services (Everybody except Netflix needs these):
   rosco:
-    enabled: true
-    baseUrl: http://{ROSCO_HOST:localhost}:8087
+    enabled: ${ROSCO_ENABLED:true}
+    baseUrl: http://${ROSCO_HOST:localhost}:${ROSCO_PORT:8087}
     # These are here only for Netflix, whose bakery does not support dynamically fetching these properties.
     # Modifying the details below when rosco.enabled is true will have no effect (do it in the Rosco config).
     defaults:
@@ -34,19 +34,19 @@ services:
             packageType: RPM
 # optional services:
   echo:
-    enabled: false
+    enabled: ${ECHO_ENABLED:false}
   fiat:
-    enabled: false
-    autoConfig: false
+    enabled: ${FIAT_ENABLED:false}
+    autoConfig: ${FIAT_AUTOCONFIG_ENABLED:false}
   flapjack:
-    enabled: false
+    enabled: ${FLAPJACK_ENABLED:false}
   igor:
-    enabled: false
+    enabled: ${IGOR_ENABLED:false}
   mahe:
-    enabled: false
+    enabled: ${MAHE_ENABLED:false}
 
 redis:
-  connection: redis://${REDIS_HOST:localhost}:6379
+  connection: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}
 
 swagger:
   enabled: true
