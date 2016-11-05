@@ -35,6 +35,7 @@ services:
 # optional services:
   echo:
     enabled: ${ECHO_ENABLED:false}
+    baseUrl: http://${ECHO_HOST:localhost}:${ECHO_PORT:8089}
   fiat:
     enabled: ${FIAT_ENABLED:false}
     autoConfig: ${FIAT_AUTOCONFIG_ENABLED:false}
@@ -42,6 +43,7 @@ services:
     enabled: ${FLAPJACK_ENABLED:false}
   igor:
     enabled: ${IGOR_ENABLED:false}
+    baseUrl: http://${IGOR_HOST:localhost}:${IGOR_PORT:8088}
   mahe:
     enabled: ${MAHE_ENABLED:false}
 
